@@ -1,0 +1,80 @@
+    /* Reset + base */
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7; /* soft green */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1200px;
+      --gap:18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+      }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%, var(--bg) 100%);color:#e6eef6}
+    a{color:var(--accent)}
+
+    .app{max-width:var(--maxw);margin:10px auto;padding:10px;display:grid;grid-template-columns:260px 1fr;gap:var(--gap)}
+
+    /* SIDEBAR */
+    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;backdrop-filter: blur(6px);min-height:520px}
+
+    .brand{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;box-shadow:0 6px 20px rgba(3,7,18,0.6)}
+
+    .brand h1{font-size:16px;margin:0}
+    
+    .muted{color:var(--muted);font-size:13px}
+
+    .nav-section{margin-top:14px}
+    .nav-section h3{font-size:13px;margin:12px 0 8px;color:var(--muted)}
+    .category{display:flex;flex-direction:column;gap:8px}
+    .cat-item{padding:8px 10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .cat-item:hover{background:var(--glass)}
+    .cat-item.active{background:linear-gradient(90deg, rgba(110,231,183,0.08), rgba(6,182,212,0.04));border:1px solid rgba(110,231,183,0.06)}
+
+    /* MAIN */
+    .main{display:flex;flex-direction:column;gap:16px}
+    .controls{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .search{flex:1;display:flex;gap:8px;align-items:center}
+    .search input{width:100%;padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit}
+    .small-btn{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+
+    /* Player card */
+    .player-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+    .video-wrap{border-radius:10px;overflow:hidden;background:#000}
+    video, iframe{width:100%;height:100%;min-height:320px}
+    .meta{display:flex;flex-direction:column;gap:8px}
+    .title{font-size:18px;font-weight:600}
+    .sub{color:var(--muted);font-size:13px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px}
+
+    /* Episodes list */
+    .episodes{background:transparent;padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:8px;max-height:420px;overflow:auto}
+    .ep{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;cursor:pointer}
+    .ep:hover{background:var(--glass)}
+    .thumb{width:90px;height:56px;background:linear-gradient(90deg,#022 0%,#013 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)}
+    .ep .meta-ep{display:flex;flex-direction:column}
+    .ep .meta-ep .ep-title{font-weight:600}
+    .ep .meta-ep .ep-sub{font-size:12px;color:var(--muted)}
+
+    /* Grid of series */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px}
+    .card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    .card h4{margin:8px 0 0}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .app{grid-template-columns:1fr;}
+      .player-card{grid-template-columns:1fr}
+      .sidebar{order:2}
+    }
+
+    /* tiny footer */
+    .footer{margin-top:8px;color:var(--muted);font-size:13px}
