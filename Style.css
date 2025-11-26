@@ -5,14 +5,14 @@ ESTILOS GENERALES
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     font-family: 'Inter', sans-serif;
 }
 
 body {
     background: #0f1629;
     color: #e8edf5;
-    display: flex;
+    /* display: flex; */
     min-height: 100vh;
 }
 
@@ -247,5 +247,23 @@ aside h3 {
 }
 
 .Superior{
-    height: 30px;
+    height: 40px;
 }
+
+.Encabezado{
+    height: 40px;
+}
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #008080;
+      color: white;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
