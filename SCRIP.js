@@ -1,6 +1,6 @@
  /* ====== Demo data: reemplaza con tu CMS o JSON real ====== */
     const SERIES = [
-      {
+        {
         id: 'primavera',
         title: 'Primavera P6',
         category: 'ingenieria',
@@ -10,34 +10,34 @@
             {id:'p6-e2',title:'Crear un proyecto nuevo',duration:'12:05',src:'/videos/primavera_ep2.mp4',thumb:'xx',desc:'Crear proyectos y calendarios.'},
             {id:'p6-e3',title:'Crear WBS',duration:'10:13',src:'/videos/primavera_ep3.mp4',thumb:'xx',desc:'Estructura de Desglose del Trabajo (WBS).'}
                     ]
-      },
+        },
       
-      {
+        {
         id: 'project',
         title: 'MS PROJECT',
         category: 'ingenieria',
         description: 'Curso práctico de MS PROJECT enfocado en proyectos de construcción',episodes:[]
-      },
+        },
 
-      {
+        {
         id: 'web',
         title: 'GIT',
         category: 'tecnologia',
         description: 'Iniciar a gemerar repositorios de control',episodes:[]
-      },
+        },
 
-      {
+        {
         id:'web',title:'Portafolio HTML & CSS',category:'tecnologia',description:'Crea un portafolio profesional con HTML y CSS',episodes:[]
-      },
+        },
 
-      {
+        {
         id:'solar',title:'Sistemas Solares Domésticos',category:'energia',description:'Cálculo y diseño de sistemas solares',episodes:[]
-      },
+        },
 
-      {
+        {
         id:'personal',title:'Manejo de Personal',category:'profesional',description:'Consejos y Casos Reales',episodes:[]
-      },
-    ];
+        },
+        ];
 
     /* ====== Utility: render episodes and series ====== */
     const episodesList = document.getElementById('episodesList');
@@ -57,10 +57,10 @@
         el.className = 'ep';
         el.innerHTML = `
           
-          <div class="meta-ep">
+        <div class="meta-ep">
             <div class="ep-title">${ep.title}</div>
             <div class="ep-sub">${ep.duration} • ${ep.desc}</div>
-          </div>`;
+        </div>`;
         el.onclick = ()=> playEpisode(s,ep);
         episodesList.appendChild(el);
       });
@@ -68,25 +68,25 @@
 
     /* ====== Selección de Curso ====== */
     /* ====== Navegación → index2.html ====== */
-function renderSeriesGrid(){
-if(!seriesGrid) return;
-seriesGrid.innerHTML = '';
+    function renderSeriesGrid(){
+    if(!seriesGrid) return;
+    seriesGrid.innerHTML = '';
 
-SERIES.forEach(s=>{
-const card = document.createElement('div');
-card.className='card';
-card.innerHTML = `
-<img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" alt="${s.title}" />
-<h4>${s.title}</h4>
-<p>${s.description}</p>
-`;
-// Navegar a index2.html con ?serie=
-card.onclick = ()=>{
-window.location.href = `index2.html?serie=${s.id}`;
-};
-seriesGrid.appendChild(card);
-});
-}
+    SERIES.forEach(s=>{
+    const card = document.createElement('div');
+    card.className='card';
+    card.innerHTML = `
+    <img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" alt="${s.title}" />
+    <h4>${s.title}</h4>
+    <p>${s.description}</p>
+    `;
+    // Navegar a index2.html con ?serie=
+    card.onclick = ()=>{
+    window.location.href = `index2.html?serie=${s.id}`;
+    };
+    seriesGrid.appendChild(card);
+    });
+    }
 
     function playEpisode(series, ep){
       // If it's a YouTube link -> replace with iframe
@@ -157,10 +157,8 @@ document.querySelectorAll('.cat-item').forEach(c=>c.classList.remove('active'));
 el.classList.add('active');
 const cat = el.dataset.cat;
 
-
 seriesGrid.innerHTML = '';
 const list = (cat==='all') ? SERIES : SERIES.filter(s=>s.category===cat);
-
 
 list.forEach(s=>{
 const card = document.createElement('div');

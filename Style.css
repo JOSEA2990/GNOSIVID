@@ -1,86 +1,251 @@
-    /* Reset + base */
-    :root{
-      --bg:#0f1724; /* deep navy */
-      --card:#0b1220;
-      --muted:#9aa4b2; /* letras */
-      --accent:#6ee7b7; /* soft green */
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --maxw:1200px;
-      --gap:18px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: dark;
-      }
+/* -----------------------------------------------------------
+ESTILOS GENERALES
+----------------------------------------------------------- */
 
-    *{box-sizing:border-box}
-    html,body{height:40%;margin:0;background:linear-gradient(180deg,#0f1724 0%, var(--bg) 100%);color:#e6eef6}
-    a{color:var(--accent)}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-    .app{max-width:var(--maxw);margin:10px auto;padding:10px;display:grid;grid-template-columns:260px 1fr;gap:var(--gap)}
+body {
+    background: #0f1629;
+    color: #e8edf5;
+    display: flex;
+    min-height: 100vh;
+}
 
-    /* SIDEBAR */
-    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;backdrop-filter: blur(6px);min-height:520px}
+/* Contenedor Estándar */
+main {
+    padding: 32px;
+    width: 100%;
+}
 
-    .brand{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+/* Botón general */
+button {
+    background: #1c7efe;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
 
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;box-shadow:0 6px 20px rgba(3,7,18,0.6)}
+button:hover {
+    background: #4694ff;
+}
 
-    .brand h1{font-size:16px;margin:0}
-    
-    .muted{color:var(--muted);font-size:13px}
 
-    .nav-section{margin-top:14px}
-    .nav-section h3{font-size:13px;margin:12px 0 8px;color:var(--muted)}
-    .category{display:flex;flex-direction:column;gap:8px}
-    .cat-item{padding:8px 10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-    .cat-item:hover{background:var(--glass)}
-    .cat-item.active{background:linear-gradient(90deg, rgba(110,231,183,0.08), rgba(6,182,212,0.04));border:1px solid rgba(110,231,183,0.06)}
+/* -----------------------------------------------------------
+   PANTALLA DE INICIO
+----------------------------------------------------------- */
 
-    /* MAIN */
-    .main{display:flex;flex-direction:column;gap:16px}
-    .controls{display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .search{flex:1;display:flex;gap:8px;align-items:center}
-    .search input{width:100%;padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit}
-    .small-btn{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+.center-screen {
+    margin: auto;
+    text-align: center;
+}
 
-    /* Player card */
-    .player-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
-    .video-wrap{border-radius:10px;overflow:hidden;background:#000}
-    video, iframe{width:100%;height:100%;min-height:320px}
-    .meta{display:flex;flex-direction:column;gap:8px}
-    .title{font-size:18px;font-weight:600}
-    .sub{color:var(--muted);font-size:13px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px}
+.center-screen h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
 
-    /* Episodes list */
-    .episodes{background:transparent;padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:8px;max-height:420px;overflow:auto}
-    .ep{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;cursor:pointer}
-    .ep:hover{background:var(--glass)}
-    .thumb{width:90px;height:56px;background:linear-gradient(90deg,#022 0%,#013 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)}
-    .ep .meta-ep{display:flex;flex-direction:column}
-    .ep .meta-ep .ep-title{font-weight:600}
-    .ep .meta-ep .ep-sub{font-size:12px;color:var(--muted)}
 
-    /* Grid of series */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px}
-    .card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
-    .card h4{margin:8px 0 0}
-    .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
+/* -----------------------------------------------------------
+   SIDEBAR
+----------------------------------------------------------- */
 
-    /* responsive */
-    @media (max-width:900px){
-      .app{grid-template-columns:1fr;}
-      .player-card{grid-template-columns:1fr}
-      .sidebar{order:2}
+.sidebar {
+    width: 240px;
+    background: #0b1120;
+    padding: 24px;
+    border-right: 1px solid #1b263b;
+}
+
+.sidebar h3 {
+    margin-bottom: 12px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cat-item {
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #111b33;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.cat-item:hover {
+    background: #17223d;
+}
+
+.cat-item.active {
+    background: #1c7efe;
+    color: white;
+}
+
+
+/* -----------------------------------------------------------
+   GRID DE CURSOS
+----------------------------------------------------------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.card {
+    background: #111b33;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 14px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card h4 {
+    font-size: 18px;
+    margin: 14px;
+    color: #ffffff;
+}
+
+.card p {
+    margin: 0 14px;
+    color: #b8c1d6;
+    font-size: 14px;
+    line-height: 1.4rem;
+}
+
+
+/* -----------------------------------------------------------
+   PÁGINA DE EPISODIOS / VIDEO
+----------------------------------------------------------- */
+
+.player-card {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+}
+
+#videoWrap video, 
+#videoWrap iframe {
+    width: 100%;
+    height: 480px;
+    border-radius: 12px;
+    background: #000;
+}
+
+#videoTitle {
+    margin-top: 16px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#videoDesc {
+    margin-top: 6px;
+    color: #b8c1d6;
+}
+
+aside h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+#episodesList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ep {
+    padding: 12px;
+    border-radius: 8px;
+    background: #111b33;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ep:hover {
+    background: #182440;
+}
+
+.ep-title {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.ep-sub {
+    font-size: 13px;
+    color: #b8c1d6;
+}
+
+
+/* -----------------------------------------------------------
+   BOTÓN VOLVER
+----------------------------------------------------------- */
+
+.volver {
+    top: 10px;
+    left: 10px;
+    background: #1c7efe;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.volver:hover {
+    background: #5598ff;
+}
+
+
+/* -----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .player-card {
+        grid-template-columns: 1fr;
     }
 
-    /* tiny footer */
-    .footer{margin-top:8px;color:var(--muted);font-size:13px}
+    aside {
+        margin-top: 20px;
+    }
+}
 
-    .Superior{
-        height: 20px;
+@media (max-width: 650px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
         width: 100%;
-        background-color: red;
+        border-right: none;
+        border-bottom: 1px solid #1b263b;
     }
+}
+
+.Superior{
+    height: 30px;
+}
