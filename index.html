@@ -7,45 +7,50 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
+    <!-- CAJA COMPLETA DE DATOS -->
     <div class="app">
+
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <div class="brand">
-        <div class="logo">Co</div>
-        <div>
-          <h1>Conocimiento On Demand</h1>
-          <div class="muted">MVP — Plataforma de videos</div>
+        <!-- Encabezado -->
+        <div class="brand">
+            <div class="logo">GV</div>
+            <div>
+            <h1>Conocimiento On Demand</h1>
+            <div class="muted">MVP — Plataforma de Cursos y Tutoriales</div>
+            </div>
         </div>
-      </div>
-
-      <div class="nav-section">
+        <!-- Tipo de Curso -->
+        <div class="nav-section">
         <h3>Categorías</h3>
         <div class="category" id="categories">
-          <div class="cat-item active" data-cat="all">Todos <span class="muted">(12)</span></div>
-          <div class="cat-item" data-cat="ingenieria">Ingeniería y Construcción</div>
-          <div class="cat-item" data-cat="energia">Energía y Sostenibilidad</div>
-          <div class="cat-item" data-cat="tecnologia">Tecnología</div>
-          <div class="cat-item" data-cat="profesional">Desarrollo Profesional</div>
+            <div class="cat-item active" data-cat="all">Todos</div>
+            <div class="cat-item" data-cat="ingenieria">Ingeniería y Construcción</div>
+            <div class="cat-item" data-cat="energia">Energía y Sostenibilidad</div>
+            <div class="cat-item" data-cat="tecnologia">Tecnología</div>
+            <div class="cat-item" data-cat="profesional">Desarrollo Profesional</div>
+            
         </div>
-      </div>
+        </div>
+        
 
-      <!--<div class="nav-section">
+        <!--<div class="nav-section">
         <h3>Tu contenido</h3>
         <div class="category">
           <div class="cat-item" id="my-series">Mi Biblioteca</div>
           <div class="cat-item" id="upload-btn">+ Subir/Agregar</div>
         </div>
-      </div> -->
+        </div> -->
 
-      <!--<div class="nav-section" style="margin-top:22px">
+        <!--<div class="nav-section" style="margin-top:22px">
         <h3>Acciones rápidas</h3>
         <div style="display:flex;flex-direction:column;gap:8px">
           <button class="small-btn" id="newSeries">Crear serie</button>
           <button class="small-btn" id="exportCSV">Exportar lista</button>
         </div>
-      </div> -->
+        </div> -->
 
-      <!--<div class="footer">Consejo: reemplaza las rutas de video por tus archivos MP4 o enlaces de YouTube/Vimeo.</div>-->
+        <!--<div class="footer">Consejo: reemplaza las rutas de video por tus archivos MP4 o enlaces de YouTube/Vimeo.</div>-->
        
     </aside>
 
@@ -53,25 +58,25 @@
     <main class="main">
 
     <!-- barra de busqueda -->
-      <div class="controls">
-        <div class="search">
-          <input id="search" placeholder="Buscar episodios, temas o palabras clave..." />
+        <div class="controls">
+            <div class="search">
+                <input id="search" placeholder="Buscar episodios, temas o palabras clave..." />
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+                <button class="small-btn" id="darkToggle">Modo</button>
+                <div class="muted">Usuario: <strong>JM</strong></div>
+            </div>
         </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <button class="small-btn" id="darkToggle">Modo</button>
-          <div class="muted">Usuario: <strong>JM</strong></div>
-        </div>
-      </div>
     <!-- Seleccion de curso-->
-      <section>
-        <h3 style="margin:6px 0">Cursos y Tutoriales</h3>
-        <div class="grid" id="seriesGrid">
-          <script src="SCRIP.js"></script>
-        </div>
-      </section>
+    <section>
+            <h3 style="margin:6px 0">Cursos y Tutoriales</h3>
+            <div class="grid" id="seriesGrid">
+                <script src="SCRIP.js"></script>
+            </div>
+    </section>
 
     </main>
-
+    
     </div>
 </body>
 

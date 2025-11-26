@@ -6,10 +6,10 @@
         category: 'ingenieria',
         description: 'Curso práctico de Primavera P6 enfocado en proyectos de construcción',
         episodes: [
-          {id:'p6-e1',title:'Introducción a Primavera P6',duration:'10:12',src:"Primavera - Video Clase1.mp4",desc:'Qué es Primavera P6, EPS, WBS y la interfaz.'},
-          {id:'p6-e2',title:'Crear un proyecto nuevo',duration:'12:05',src:'/videos/primavera_ep2.mp4',thumb:'xx',desc:'Crear proyectos y calendarios.'},
-          {id:'p6-e3',title:'Crear WBS',duration:'10:13',src:'/videos/primavera_ep3.mp4',thumb:'xx',desc:'Estructura de Desglose del Trabajo (WBS).'}
-        ]
+            {id:'p6-e1',title:'Introducción a Primavera P6',duration:'10:12',src:"Primavera - Video Clase1.mp4",desc:'Qué es Primavera P6, EPS, WBS y la interfaz.'},
+            {id:'p6-e2',title:'Crear un proyecto nuevo',duration:'12:05',src:'/videos/primavera_ep2.mp4',thumb:'xx',desc:'Crear proyectos y calendarios.'},
+            {id:'p6-e3',title:'Crear WBS',duration:'10:13',src:'/videos/primavera_ep3.mp4',thumb:'xx',desc:'Estructura de Desglose del Trabajo (WBS).'}
+                    ]
       },
       
       {
@@ -17,6 +17,13 @@
         title: 'MS PROJECT',
         category: 'ingenieria',
         description: 'Curso práctico de MS PROJECT enfocado en proyectos de construcción',episodes:[]
+      },
+
+      {
+        id: 'web',
+        title: 'GIT',
+        category: 'tecnologia',
+        description: 'Iniciar a gemerar repositorios de control',episodes:[]
       },
 
       {
@@ -60,33 +67,26 @@
     }
 
     /* ====== Selección de Curso ====== */
-    function renderSeriesGrid(){
-      seriesGrid.innerHTML = '';
-      SERIES.forEach(s=>{
-        const card = document.createElement('div');
-        card.className='card';
-        card.innerHTML = `
-          <img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" alt="${s.title}" />
-          <h4>${s.title}</h4>
-          <p>${s.description}</p>
-        `;
-        card.onclick = ()=>{
-           // ir a la pantalla de visualización  
-            document.getElementById('seriesGrid').addEventListener('click', function() {
-            window.open('index2.html');
-            window.close('index.html');
-            });
+    /* ====== Navegación → index2.html ====== */
+function renderSeriesGrid(){
+if(!seriesGrid) return;
+seriesGrid.innerHTML = '';
 
-          // select series
-          document.querySelectorAll('.cat-item').forEach(c=>c.classList.remove('active'));
-          document.querySelector('[data-cat="ingenieria"]').classList.add('active');
-          renderEpisodes(s.id);
-          // play first if exists
-          if(s.episodes && s.episodes.length) playEpisode(s,s.episodes[0]);
-        }
-        seriesGrid.appendChild(card);
-      })
-    }
+SERIES.forEach(s=>{
+const card = document.createElement('div');
+card.className='card';
+card.innerHTML = `
+<img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" alt="${s.title}" />
+<h4>${s.title}</h4>
+<p>${s.description}</p>
+`;
+// Navegar a index2.html con ?serie=
+card.onclick = ()=>{
+window.location.href = `index2.html?serie=${s.id}`;
+};
+seriesGrid.appendChild(card);
+});
+}
 
     function playEpisode(series, ep){
       // If it's a YouTube link -> replace with iframe
@@ -150,23 +150,30 @@
       })
     })
 
-    document.querySelectorAll('.cat-item').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        document.querySelectorAll('.cat-item').forEach(c=>c.classList.remove('active'));
-        el.classList.add('active');
-        const cat = el.dataset.cat;
-        // filter seriesGrid by category
-        seriesGrid.innerHTML='';
-        const list = (cat==='all' || !cat) ? SERIES : SERIES.filter(s=>s.category===cat);
-        list.forEach(s=>{
-          const card = document.createElement('div');
-          card.className='card';
-          card.innerHTML = `<img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" alt="${s.title}" /><h4>${s.title}</h4><p>${s.description}</p>`;
-          card.onclick = ()=>{ renderEpisodes(s.id); if(s.episodes && s.episodes[0]) playEpisode(s,s.episodes[0]); }
-          seriesGrid.appendChild(card);
-        })
-      })
-    })
+/* ====== Filtro de Categoría ====== */
+document.querySelectorAll('.cat-item').forEach(el=>{
+el.addEventListener('click', ()=>{
+document.querySelectorAll('.cat-item').forEach(c=>c.classList.remove('active'));
+el.classList.add('active');
+const cat = el.dataset.cat;
+
+
+seriesGrid.innerHTML = '';
+const list = (cat==='all') ? SERIES : SERIES.filter(s=>s.category===cat);
+
+
+list.forEach(s=>{
+const card = document.createElement('div');
+card.className='card';
+card.innerHTML = `
+<img src="https://placehold.co/600x360?text=${encodeURIComponent(s.title)}" />
+<h4>${s.title}</h4>
+<p>${s.description}</p>`;
+card.onclick = ()=> window.location.href = `index2.html?serie=${s.id}`;
+seriesGrid.appendChild(card);
+});
+});
+});
 
     // small actions
     /* ====== document.getElementById('upload-btn').addEventListener('click', ()=>alert('Función subir/Agregar: en el MVP, reemplaza manualmente el arreglo SERIES en el código con tus videos.'))====== */
