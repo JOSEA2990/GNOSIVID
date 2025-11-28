@@ -248,22 +248,57 @@ aside h3 {
 
 .Superior{
     height: 40px;
+    display:inline-flex;
 }
 
 .Encabezado{
-    height: 40px;
+    height: 8vh;
+    background-color: #b5bebe;
+    align-items: center;
 }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #008080;
-      color: white;
-    }
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #b5bebe;
+    color: rgb(0, 0, 0);
+}
 
-    footer a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
+footer a {
+    color: #000000;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.brand{display:flex;gap:12px;align-items:center;padding:3px; margin-bottom:14px}
+
+.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;box-shadow:0 6px 20px rgba(3,7,18,0.6)}
+
+.brand h1{font-size:16px;margin:0;color: #000;}
+    
+.muted{color:black;font-size:13px}
+
+.topbar {
+    width: 100%;
+    padding: 10px 20px;
+    background: #0e1525;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+}
+
+.back-topbar {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #e6eef6;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.back-topbar:hover {
+    background: rgba(255,255,255,0.1);
+}
