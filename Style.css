@@ -246,11 +246,7 @@ aside h3 {
     }
 }
 
-.Superior{
-    height: 40px;
-    display:inline-flex;
-}
-
+/* Formato de encabezado y pie de pagina */
 .Encabezado{
     height: 8vh;
     background-color: #b5bebe;
@@ -271,6 +267,7 @@ footer a {
     font-size: 1rem;
 }
 
+/* Formato de LOGO */
 .brand{display:flex;gap:12px;align-items:center;padding:3px; margin-bottom:14px}
 
 .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;box-shadow:0 6px 20px rgba(3,7,18,0.6)}
@@ -279,6 +276,7 @@ footer a {
     
 .muted{color:black;font-size:13px}
 
+/* Formato de barra de volver */
 .topbar {
     width: 100%;
     padding: 10px 20px;
@@ -302,3 +300,31 @@ footer a {
 .back-topbar:hover {
     background: rgba(255,255,255,0.1);
 }
+
+/* formato para la division de la pantalla */
+    .containerFLEX {
+        display: flex;
+    }
+
+    .boxFLEX {
+        min-width: 15vw;
+        width: 37%;
+        padding: 5px;
+        background-color: #1976d2;
+        text-align: center;
+        border: 1px solid #000;
+        margin: 1.5rem auto;
+        border-right: 0px #1976d2;
+        align-items:flex-start;
+        justify-content: center;
+    }
+    .boxFLEX:nth-child(2) {
+        min-width: 20vw;
+        width: 63%;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.05);
+        text-align: center;
+        border: 1px solid #000;
+        margin: 1.5rem auto;
+        border-left: 0px #1976d2;
+    }
